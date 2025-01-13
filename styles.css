@@ -1,0 +1,278 @@
+body, h1, h2, p, form, input, textarea, button div, ul, li, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafafa;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #AAA9AD, rgba(125, 208, 215, 0));
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: flex;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+nav h1 {
+    margin-left: 10px;
+    text-align: left;
+    font-size: 1.8rem;
+    color: white;
+}
+
+#menu {
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    margin: 0;
+}
+
+#menu h2 {
+    margin: 0 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color:  rgba(125, 208, 215, 0);
+    transition: color 1s ease, transform 1s ease;
+    padding: 10px 20px;
+}
+
+#menu h2:hover {
+    background: linear-gradient(to bottom, rgba(125, 208, 215, 0), #7DD0D7);
+    transform: scale(1.07);
+}
+
+#menu a {
+    color: white;
+}
+
+#menu a:hover {
+    color: #fafafa;
+    transform: scale(1.02);
+}
+
+#about {
+    background-color: #1e1e1e; /* Dark gray background for contrast */
+    color: #e0e0e0; /* Light gray text for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    z-index: 1;
+}
+
+#about h2 {
+    font-size: 2rem;
+    color: #ffffff; /* Bright white text for headers */
+    margin-bottom: 10px;
+}
+
+#about p {
+    font-size: 1.2rem;
+    color: #b0b0b0; /* Slightly darker gray for paragraph text */
+    line-height: 1.6;
+}
+
+#about p::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px; /* Position the underline below the text */
+    width: 60%;
+    height: 2px;
+    background-color: #7DD0D7; /* Color for the underline */
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+#about p:hover::before {
+    width: 80%; /* Make the underline wider on hover */
+}
+
+#portfolio {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#photo-gallery {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    gap: 10px; /* Optional, for spacing between figures */
+}
+
+#photo-gallery figure {
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+#photo-gallery img {
+    max-width: 80%;
+    height: auto;
+}
+
+#photo-gallery figcaption {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+
+}
+
+#contact {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    width: 100%;
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+#contact:hover {
+    transform: translateY(-10px);
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+#contact label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #808080;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 3px solid #4AF;
+    border-radius: 2px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background: #fafafa;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #7DD0D7;
+    outline: none;
+    background: #fff;
+}
+
+#contact textarea {
+    resize: vertical;
+}
+
+#contact button {
+    padding: 15px;
+    background-color: #7DD0D7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#contact button:hover {
+    background-color: #7DD0D7;
+    transform: scale(1.05);
+}
+
+#contact input:focus::placeholder, #contact textarea::placeholder {
+    color: #bbb;
+    transition: color 0.3s ease;
+}
+
+#contact input:focus::placeholder, #contact textarea:focus::placeholder {
+    color: transparent;
+}
+
+.form-group:focus-within label {
+    color: #4CAF50;
+}
+
+.form-group::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #4CAF50;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.form-group:focus-within::before {
+    width: 100%;
+    left: 0;
+}
