@@ -7,7 +7,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Create hexagons
 const hexRadius = 1;
-const hexHeight = Math.sqrt(5) * hexRadius;
+const hexHeight = Math.sqrt(3) * hexRadius;
 const hexGeometry = new THREE.CircleGeometry(hexRadius, 30);
 const hexGroup = new THREE.Group();
 
@@ -71,10 +71,10 @@ function animate() {
     hexGroup.children.forEach(hex => {
         const time = Date.now() * 0.001;
         hex.position.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
-        hex.position.x+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
-        hex.position.y+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.position.x = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.position.y = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
     
-        hex.rotation.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.rotation.z+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
     });
 
     renderer.render(scene, camera);
