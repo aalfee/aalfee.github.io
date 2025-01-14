@@ -69,7 +69,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     hexGroup.children.forEach(hex => {
-        const time = Date.now() * 0.0001;
+        const time = Date.now() * 0.001;
         hex.position.z+=hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
         hex.position.x+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
         hex.position.y+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
