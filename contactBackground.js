@@ -7,8 +7,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Create hexagons
 const hexRadius = 1;
-const hexHeight = Math.sqrt(3) * hexRadius;
-const hexGeometry = new THREE.CircleGeometry(hexRadius, 6);
+const hexHeight = Math.sqrt(5) * hexRadius;
+const hexGeometry = new THREE.CircleGeometry(hexRadius, 30);
 const hexGroup = new THREE.Group();
 
 const BackgroundGeometry = new THREE.PlaneGeometry(50, 50);
@@ -57,7 +57,7 @@ const ambientLight = new THREE.AmbientLight(0x444444); // Soft ambient light
 scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Adjusted light intensity
-directionalLight.position.set(5, 5, 10);
+directionalLight.position.set(5, 3, 10);
 
 scene.add(directionalLight);
 
@@ -71,6 +71,10 @@ function animate() {
     hexGroup.children.forEach(hex => {
         const time = Date.now() * 0.001;
         hex.position.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.position.x+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.position.y+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+    
+        hex.rotation.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
     });
 
     renderer.render(scene, camera);
