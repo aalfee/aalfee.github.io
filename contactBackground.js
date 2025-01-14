@@ -7,7 +7,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Create hexagons
 const hexRadius = 1;
-const hexHeight = Math.sqrt(2) * hexRadius;
+const hexHeight = Math.sqrt(3) * hexRadius;
 const hexGeometry = new THREE.CircleGeometry(hexRadius, 30);
 const hexGroup = new THREE.Group();
 
@@ -33,7 +33,7 @@ function getColor() {
 // Create hexagons with modern styling
 for (let row = -10; row < 10; row++) {
     for (let col = -10; col < 10; col++) {
-        const x = col * 2 * hexRadius;
+        const x = col * 1.5 * hexRadius;
         const y = row * hexHeight + (col % 2) * (hexHeight / 2);
         const color = getColor(); // Modern, random colors
         const hexMaterial = new THREE.MeshPhysicalMaterial({
