@@ -31,8 +31,8 @@ function getColor() {
 }
 
 // Create hexagons with modern styling
-for (let row = -5; row < 5; row++) {
-    for (let col = -5; col < 5; col++) {
+for (let row = -10; row < 10; row++) {
+    for (let col = -10; col < 10; col++) {
         const x = col * 1.5 * hexRadius;
         const y = row * hexHeight + (col % 2) * (hexHeight / 2);
         const color = getColor(); // Modern, random colors
