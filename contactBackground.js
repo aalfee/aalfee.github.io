@@ -8,12 +8,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // Create hexagons
 const hexRadius = 1;
 const hexHeight = Math.sqrt(3) * hexRadius;
-const hexGeometry = new THREE.CircleGeometry(hexRadius, 30);
+const hexGeometry = new THREE.CircleGeometry(hexRadius, 20);
 const hexGroup = new THREE.Group();
 
 const BackgroundGeometry = new THREE.PlaneGeometry(50, 50);
 const BackgroundMaterial = new THREE.MeshPhongMaterial({
-    color: 0x000000, // Dark background for contrast
+    color: 0xFFFFFF, // Dark background for contrast
     side: THREE.DoubleSide,
     opacity: 0.7,
     transparent: true
@@ -57,11 +57,12 @@ const ambientLight = new THREE.AmbientLight(0x444444); // Soft ambient light
 scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Adjusted light intensity
-directionalLight.position.set(5, 3, 10);
+directionalLight.position.set(5, 2, 20);
+directionalLight.rotation.z = -5;
 
 scene.add(directionalLight);
 
-const pointLight2 = new THREE.PointLight(0x7DD0D7, 3, 70); // Bright point light for highlights
+const pointLight2 = new THREE.PointLight(0xFF5210, 3, 70); // Bright point light for highlights
 pointLight2.position.set(-5, -5, 10);
 scene.add(pointLight2);
 
@@ -70,11 +71,14 @@ function animate() {
 
     hexGroup.children.forEach(hex => {
         const time = Date.now() * 0.001;
-        hex.position.z+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
-        hex.position.x-= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
-        hex.position.y+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
-    
-        hex.rotation.x+=hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        hex.rotation.x = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
+        //hex.rotation.y = hex.userData.originalPosition.z + Math.cos(time * hex.userData.speed * 10) * 5;
+        hex.rotation.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 5;
+
+        //hex.position.x+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.05;
+        hex.position.y+= hex.userData.originalPosition.z + Math.cos(time * hex.userData.speed * 10) * 0.05;
+        hex.position.z+= hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 1) * 0.05;
+
     });
 
     renderer.render(scene, camera);
