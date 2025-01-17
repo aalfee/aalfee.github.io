@@ -70,7 +70,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     hexGroup.children.forEach(hex => {
-        const time = Date.now() * 0.001;
+        const time = Date.now() * 0.01;
         hex.rotation.x = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 0.15;
         //hex.rotation.y = hex.userData.originalPosition.z + Math.cos(time * hex.userData.speed * 10) * 5;
         hex.rotation.z = hex.userData.originalPosition.z + Math.sin(time * hex.userData.speed * 10) * 5;
