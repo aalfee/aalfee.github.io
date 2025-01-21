@@ -16,7 +16,7 @@ function init() {
     
     // Load your jewelry 3D model
     const loader = new THREE.OBJLoader();
-    loader.load('assets/jewelry-models/ring.obj', function (object) {
+    loader.load('head.obj', function (object) {
         model = object;
         scene.add(model);
     });
