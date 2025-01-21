@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry AR/VR Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <!-- VR View -->
+        <div id="vr-container">
+            <h1>Explore Our Jewelry in VR!</h1>
+            <div id="vr-view"></div>
+            <button id="start-vr-btn">Enter VR</button>
+        </div>
+        
+        <!-- AR View -->
+        <div id="ar-container">
+            <h1>Try Jewelry in Augmented Reality</h1>
+            <a href="https://example.com/qr-code" target="_blank" id="ar-link">Open AR on your phone</a>
+            <div id="ar-view"></div>
+        </div>
+    </div>
+
+    <script src="libs/three.min.js"></script>
+    <script src="libs/ar.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
