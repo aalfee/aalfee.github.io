@@ -1,5 +1,5 @@
 //import three.js library here
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js';
+import * as THREE from 'three';
 import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
