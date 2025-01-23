@@ -1,6 +1,6 @@
 //import three.js library here
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js';
-import {OBJLoader} from "/node_modules/.vite/deps/three_examples_jsm_loaders_OBJLoader__js.js?v=acc3de08";
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
