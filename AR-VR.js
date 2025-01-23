@@ -1,70 +1,109 @@
-//import three.js library here
 import * as THREE from 'three';
 
 			import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+			let camera, scene, renderer;
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('AR-window') });
-renderer.setSize(window.innerWidth, window.innerHeight);
+			let object;
 
-const objectLoader = new OBJLoader();
-const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 0, 1.4);
-orbit.update(); 
+			init();
 
+			function init() {
 
-objectLoader.load('head.obj', (head) => {
-    //data.children[0].material = new THREE.MeshBasicMaterial({color: 0x00ff00})    
-    head.scale.set(0.038,0.042,0.038);
-    head.position.set(0, -0.5, 0);
-    head.rotation.x = -1.55;
-    scene.add(head); });
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 20 );
+				camera.position.z = 2.5;
 
-objectLoader.load('hair.obj', (hair) => {
-    //data.children[0].material = new THREE.MeshBasicMaterial({color: 0x00ff00})    
-    hair.scale.set(0.038,0.042,0.038);
-    hair.position.set(0, 0.4, 0.05);
-    //hair.rotation.y = 0;
-    scene.add(hair); });
+				// scene
 
+				scene = new THREE.Scene();
 
-const BackgroundGeometry = new THREE.PlaneGeometry(50, 50);
-const BackgroundMaterial = new THREE.MeshPhongMaterial({
-    color: 0x0000FF, // Dark background for contrast
-    side: THREE.DoubleSide,
-    opacity: 0.7,
-    transparent: true
-});
-const Background = new THREE.Mesh(BackgroundGeometry, BackgroundMaterial);
-scene.add(Background);
-Background.position.z = -1;
+				const ambientLight = new THREE.AmbientLight( 0xffffff );
+				scene.add( ambientLight );
 
+				const pointLight = new THREE.PointLight( 0xffffff, 15 );
+				camera.add( pointLight );
+				scene.add( camera );
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.15); // Soft ambient light
-scene.add(ambientLight);
+				// manager
 
-const directionalLight = new THREE.DirectionalLight(0xFFA500, 0.85); // Adjusted light intensity
-directionalLight.position.set(5, -5, 50);
-directionalLight.rotation.z = -5;
+				function loadModel() {
 
-scene.add(directionalLight);
+					object.traverse( function ( child ) {
 
-const pointLight2 = new THREE.PointLight(0x800080, 7, 13); // Bright point light for highlights
-pointLight2.position.set(-6, 2, 10);
-scene.add(pointLight2);
+						if ( child.isMesh ) child.material.map = texture;
 
-function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-    console.log(camera.position);
-}
-animate();
+					} );
 
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
+					object.position.y = - 0.95;
+					object.scale.setScalar( 0.01 );
+					scene.add( object );
+
+					render();
+
+				}
+
+				const manager = new THREE.LoadingManager( loadModel );
+
+				// texture
+
+				const textureLoader = new THREE.TextureLoader( manager );
+				const texture = textureLoader.load( 'textures/uv_grid_opengl.jpg', render );
+				texture.colorSpace = THREE.SRGBColorSpace;
+
+				// model
+
+				function onProgress( xhr ) {
+
+					if ( xhr.lengthComputable ) {
+
+						const percentComplete = xhr.loaded / xhr.total * 100;
+						console.log( 'model ' + percentComplete.toFixed( 2 ) + '% downloaded' );
+
+					}
+
+				}
+
+				function onError() {}
+
+				const loader = new OBJLoader( manager );
+				loader.load( 'head.obj', function ( obj ) {
+
+					object = obj;
+
+				}, onProgress, onError );
+
+				//
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.minDistance = 2;
+				controls.maxDistance = 5;
+				controls.addEventListener( 'change', render );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
