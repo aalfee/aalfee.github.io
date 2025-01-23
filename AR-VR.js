@@ -1,7 +1,7 @@
 //import three.js library here
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js';
-import {OBJLoader} from 'https://cdn.jsdelivr.net/npm/three-obj-loader@1.1.3/dist/index.min.js';
-import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three-orbitcontrols@2.110.3/OrbitControls.min.js'
+import {OBJLoader} from 'https://github.com/aalfee/aalfee.github.io/blob/main/node_modules/three/examples/jsm/loaders/OBJLoader.js';
+import {OrbitControls} from 'https://github.com/aalfee/aalfee.github.io/blob/main/node_modules/three/examples/jsm/controls/OrbitControls.js'
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
