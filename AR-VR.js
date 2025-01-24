@@ -26,13 +26,13 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.m
 				scene.add( camera );
 
 		
-
-				const loader = new OBJLoader( manager );
-				loader.load( 'head.obj', function ( obj ) {
-
-					object = obj;
-
-				});
+		const objectloader = new OBJLoader();
+objectLoader.load('head.obj', (stove) => {
+    //data.children[0].material = new THREE.MeshBasicMaterial({color: 0x00ff00})    
+    stove.scale.set(0.038,0.042,0.038);
+    stove.position.set(-5.8, 0.2, -6.3);
+    stove.rotation.x = -1.55;
+    scene.add(stove); });
 
 				//
 
