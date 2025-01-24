@@ -25,53 +25,14 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.m
 				camera.add( pointLight );
 				scene.add( camera );
 
-				// manager
-
-				function loadModel() {
-
-					object.traverse( function ( child ) {
-
-						if ( child.isMesh ) child.material.map = texture;
-
-					} );
-
-					object.position.y = - 0.95;
-					object.scale.setScalar( 0.01 );
-					scene.add( object );
-
-					render();
-
-				}
-
-				const manager = new THREE.LoadingManager( loadModel );
-
-				// texture
-
-				const textureLoader = new THREE.TextureLoader( manager );
-				const texture = textureLoader.load( 'textures/uv_grid_opengl.jpg', render );
-				texture.colorSpace = THREE.SRGBColorSpace;
-
-				// model
-
-				function onProgress( xhr ) {
-
-					if ( xhr.lengthComputable ) {
-
-						const percentComplete = xhr.loaded / xhr.total * 100;
-						console.log( 'model ' + percentComplete.toFixed( 2 ) + '% downloaded' );
-
-					}
-
-				}
-
-				function onError() {}
+		
 
 				const loader = new OBJLoader( manager );
 				loader.load( 'head.obj', function ( obj ) {
 
 					object = obj;
 
-				}, onProgress, onError );
+				});
 
 				//
 
