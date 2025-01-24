@@ -1,7 +1,7 @@
-import * as THREE from 'three';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.172.0/three.module.js';
 
-			import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-			import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+			import { OBJLoader } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.173.0/three/addons/loaders/OBJLoader.js';
+			import { OrbitControls } from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.172.0/three/addons/controls/OrbitControls.js';
 
 			let camera, scene, renderer;
 
