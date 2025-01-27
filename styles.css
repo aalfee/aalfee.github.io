@@ -122,20 +122,18 @@ nav h1 {
     width: 80%; /* Make the underline wider on hover */
 }
 
-#portfolio {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
 #photo-gallery {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    scroll-behavior:smooth;
     padding: 10px;
     gap: 10px; /* Optional, for spacing between figures */
+}
+
+.visibility-toggle {
+    visibility: hidden;
 }
 
 #photo-gallery figure {
@@ -144,7 +142,7 @@ nav h1 {
 }
 
 #photo-gallery img {
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -323,4 +321,34 @@ button {
     cursor: pointer;
 }
 
+#photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
 
+
+#photos button {
+    width: 70%;
+    padding: 100px;
+    background-color: #d7b67d;
+    color: white;
+    border: groove;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+    font-size: 5.0rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+#photos button:hover {
+    background-color: #dcd376;
+    transform: scale(1.05);
+}
