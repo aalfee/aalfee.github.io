@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
 <head>	
 	<title>Contact Info</title>
 	<link rel="stylesheet" href="styles.css">
 	<script type="importmap">
 		{
 		  "imports": {
-			"three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
-			"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+			"three": "https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js",
+			"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.146.0/examples/jsm/",
+			"threex": "https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"
 		  }
 		}
 	  </script>
@@ -22,10 +24,19 @@
 			<h2><a href="contact.html">Contact Us</a></h2>
 		</section>
 	</nav>
-    <canvas id="AR-window">
-        AR window
+	<div id="VR-container">
+    <canvas id="VR-window">
+        VR window
     </canvas>
+	</div>
 
-	<script type="module" src="/AR-VR.js"></script>
+	<div id="AR-container">
+	<canvas id="AR-window">
+		AR window
+	</canvas>
+    </div>
+
+	<script type="module" src="VR.js"></script>
+	<script type="module" src="AR.js"></script>
 </body>
 </html>
