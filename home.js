@@ -70,8 +70,8 @@ scene.add(pointLight2);
 
 //<--- Start of new code --->
 
-let selectedObject = null;
 
+<<<<<<< HEAD
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
@@ -121,6 +121,8 @@ const lightY = mouseY * 10; // Adjust multiplier for desired range
 directionalLight2.position.set(0, lightY, lightX);
 }
 
+=======
+>>>>>>> 607b6864798f97ef509e3fd56210a11fc9e50ebc
 // <---- End of new Code --->
 
 
