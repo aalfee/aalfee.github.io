@@ -73,56 +73,10 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-
-
-
-function onPointerMove(event) {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
-
-    raycaster.setFromCamera(pointer, camera);
-
-    const intersects = raycaster.intersectObject(group, true);
-
-    if (intersects.length > 0) {
-        const res = intersects.filter(res => res && res.object)[0];
-
-        if (res && res.object && res.object.position.y === 1) {
-            selectedObject = res.object;
-            selectedObject.material.color.set(0xff0000);
-        } else {
-            if (selectedObject) {
-                selectedObject.material.color.set(0xff00ff);
-                selectedObject = null;
-            }
-        }
-    } else {
-        if (selectedObject) {
-            selectedObject.material.color.set(0xff00ff);
-            selectedObject = null;
-        }
-    }
-}
-
 function onPointerDown(event) {
     if (selectedObject && selectedObject.position.y === 1) {
         selectedObject.material.color.set(0x00ff00);
     }
 }
 
-function onMouseMove(event) {
-    // Calculate normalized mouse position
-    const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    const mouseY = - (event.clientY / window.innerHeight) * 2 + 1;
 
-    // Update camera position to simulate horizontal scrolling
-    const deltaX = event.movementX * 0.02;
-    scrollAmount += deltaX;
-    scrollAmount = Math.max(maxScrollLeft, Math.min(maxScrollRight, scrollAmount));
-    camera.position.x = scrollAmount;
-
-    // Update light position based on mouse position
-    const lightX = mouseX * 40; // Adjust multiplier for desired range
-    const lightY = mouseY * 40; // Adjust multiplier for desired range
-    pointLight.position.set(lightX, lightY, 30);
-}
