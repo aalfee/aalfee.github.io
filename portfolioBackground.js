@@ -58,17 +58,9 @@ function init() {
     const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
     scene.add(ambientLight);
 
-    pointLight = new THREE.PointLight(0xffffff, 1000, 100);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
-
     // Event listeners
     window.addEventListener('resize', onWindowResize);
-    document.addEventListener('pointermove', onPointerMove);
-    document.addEventListener('pointerdown', onPointerDown);
-
-    // Handle scrolling based on mouse movement
-    document.addEventListener('mousemove', onMouseMove);
+ 
 }
 
 function animate() {
