@@ -4,7 +4,6 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 //import * as THREEx from 'threex';
 
-<<<<<<< HEAD
 const video = document.getElementById('camera');
 const cameraButton = document.getElementById('cameraButton');
 var on_off = 1;         // counter for on and off switch of the camera
@@ -39,26 +38,6 @@ objectLoader.load('head.obj', (head) => {
     scene.add(head); 
     my3DObject = necklace; 
 });
-=======
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('AR-window') });
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-
-const orbit = new OrbitControls(camera, renderer.domElement);
-camera.position.set(0, 0, 1.5);
-orbit.update(); 
-
-const objectLoader = new OBJLoader();
-
-objectLoader.load('head.obj', (head) => {
-    //data.children[0].material = new THREE.MeshBasicMaterial({color: 0x00ff00})    
-    head.scale.set(0.038,0.042,0.038);
-    head.position.set(0, -0.6, 0);
-    head.rotation.x = -1.55;
-    scene.add(head); });
->>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
 
 objectLoader.load('hair.obj', (hair) => {
     //data.children[0].material = new THREE.MeshBasicMaterial({color: 0x00ff00})    
@@ -67,7 +46,7 @@ objectLoader.load('hair.obj', (hair) => {
     //hair.rotation.y = 0;
     scene.add(hair); });
 
-<<<<<<< HEAD
+
 /*
 const BackgroundGeometry = new THREE.PlaneGeometry(50, 50);
 const BackgroundMaterial = new THREE.MeshPhongMaterial({
@@ -228,8 +207,7 @@ function mapObjectToNeckline(necklinePosition) {
 
     renderer.render(scene, camera); // Update the rendering
 }
-
-=======
+/*
 
 const BackgroundGeometry = new THREE.PlaneGeometry(50, 50);
 const BackgroundMaterial = new THREE.MeshPhongMaterial({
@@ -310,4 +288,3 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
->>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d

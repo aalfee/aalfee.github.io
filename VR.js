@@ -1,10 +1,9 @@
 //import three.js library here
-<<<<<<< HEAD
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 //import * as AR from 'ar';
-=======
+
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -12,7 +11,6 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 //import * as THREEx from 'threex';
 
 // Request access to the user's camera
->>>>>>> a1cbd24c1b5bfe78904a641b367e24bd4a0e81b7
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -66,10 +64,6 @@ const pointLight2 = new THREE.PointLight(0x800080, 7, 13); // Bright point light
 pointLight2.position.set(-6, 2, 10);
 scene.add(pointLight2);
 
-<<<<<<< HEAD
-function animate() {
-    requestAnimationFrame(animate);
-=======
 // <------ Start of AR implementations ----->
 /*
 const arToolkitSource = new THREEx.ArToolkitSource({
@@ -114,7 +108,6 @@ function animate() {
     //if (arToolkitSource.ready !== false) {
     //    arToolkitContext.update(arToolkitSource.domElement);
     //}
->>>>>>> a1cbd24c1b5bfe78904a641b367e24bd4a0e81b7
     renderer.render(scene, camera);
     console.log(camera.position);
 }

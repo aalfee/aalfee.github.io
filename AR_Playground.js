@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import * as THREE from 'three';
 
 import * as THREEx from 'threex';
@@ -136,7 +136,7 @@ var markerRoot1, markerRoot2;
 var mesh1;
 
 initialize();
-<<<<<<< HEAD
+
 //animate();
 
 function initialize()
@@ -214,16 +214,7 @@ function initialize()
 	deltaTime = 0;
 	totalTime = 0;
 >>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
-	
-	////////////////////////////////////////////////////////////
-	// setup arToolkitSource
-	////////////////////////////////////////////////////////////
-<<<<<<< HEAD
-/*
-=======
-
->>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
-	arToolkitSource = new THREEx.ArToolkitSource({
+		arToolkitSource = new THREEx.ArToolkitSource({
 		sourceType : 'webcam',
 	});
 
@@ -310,8 +301,6 @@ function update()
 	// additional code for smoothed controls
 	smoothedControls.update(markerRoot1);
 }
-<<<<<<< HEAD
-*/
 //function animate()
 //{
 	//requestAnimationFrame(animate);
@@ -321,9 +310,7 @@ function update()
 	//render();
 
 //}
-=======
-
-
+*/
 function render()
 {
 	renderer.render( scene, camera );
@@ -338,9 +325,3 @@ function animate()
 	update();
 	render();
 }
-
-</script>
-
-</body>
-</html>
->>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
