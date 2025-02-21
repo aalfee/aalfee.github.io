@@ -19,7 +19,7 @@ html, body {
     color: #333;
     background-color: #fafafa;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
@@ -276,7 +276,6 @@ nav h1 {
 }
 
 #AR-window {
-    background-color: #fff;
     padding: 40px;
     border-radius: 1000px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
@@ -289,6 +288,48 @@ nav h1 {
     justify-content: center;
     align-items: center;
 } 
+
+#VR-window {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 1000px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    max-width: 1850px;
+    max-height: 1000px;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s ease;
+    display: flex;
+    top: 100%;
+    justify-content: center;
+    align-items: center;
+} 
+
+video {
+    width: 80%; /* Make video full width */
+    height: auto; /* Keep aspect ratio */
+    border: 1px solid black; /* Optional: Add a border around the video */
+}
+
+#menu button {
+    padding: 15px;
+    background-color: #7DD0D7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#menu button:hover {
+    background-color: #7DD0D7;
+    transform: scale(1.05);
+}
+
 
 #model {
     display: flex;

@@ -92,32 +92,35 @@ raycaster.setFromCamera(pointer, camera);
 
 const intersects = raycaster.intersectObject(model, true);
 
-if (intersects.length > 0) {
-    const res = intersects.filter(res => res && res.object)[0];
+const res = intersects.filter(res => res && res.object)[0];
+selectedObject = res.object;
 
-        selectedObject = res.object;
-            selectedObject.material.color.set(0xff00ff);
+if (intersects.length > 0) {
+            selectedObject.material.color.set(0xfff000);
   }
 }
 
-
-
 function onMouseMove(event) {
+
 // Calculate normalized mouse position
+
 const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
 const mouseY = - (event.clientY / window.innerHeight) * 2 + 1;
 
 // Update camera position to simulate horizontal scrolling
-const deltaX = event.movementX * 0.002;
-scrollAmount += deltaX * 0.5;
-scrollAmount = Math.max(maxScrollLeft, Math.min(maxScrollRight, scrollAmount));
-camera.position.x = scrollAmount;
+
+const deltaY = event.movementY * 0.002;
+scrollAmount += deltaY * 0.5;
+//scrollAmount = Math.max(maxScrollLeft, Math.min(maxScrollRight, scrollAmount));
+camera.position.y = scrollAmount;
 
 // Update light position based on mouse position
-const lightX = mouseX * 40; // Adjust multiplier for desired range
-const lightY = mouseY * 40; // Adjust multiplier for desired range
-directionalLight2.position.set(lightX, lightY, 30);
+
+const lightX = mouseX * 10; // Adjust multiplier for desired range
+const lightY = mouseY * 10; // Adjust multiplier for desired range
+directionalLight2.position.set(0, lightY, lightX);
 }
+
 // <---- End of new Code --->
 
 

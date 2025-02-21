@@ -3,6 +3,14 @@
 <head>	
 	<title>Contact Info</title>
 	<link rel="stylesheet" href="styles.css">
+	<script type="importmap">
+		{
+		  "imports": {
+			"three": "https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js",
+			"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.146.0/examples/jsm/"
+		  }
+		}
+	  </script>
 </head>
 <body>
 	
@@ -12,6 +20,7 @@
 	<nav>
 		<h1>AR-VR</h1>
 		<section id="menu">
+			<button id="cameraButton" type="submit">Camera</button>
 			<h2><a href="home.html">Home</a></h2>
 			<h2><a href="https://www.etsy.com/shop/JamaChicJewelry?ref=related&from_page=listing&listing_id=1825731176">Shop</a></h2>
 			<h2><a href="button.html">Button</a></h2>
@@ -19,10 +28,17 @@
 			<h2><a href="AR-VR.html">AR/VR</a></h2>
 		</section>
 	</nav>
-    <div id="AR-window">
-        AR window
-    </div>
 
+	<video id="camera" autoplay playsinline style="display: none;"></video>
+
+    <canvas id="AR-window">
+        AR window
+	</canvas>
+
+	<canvas id="VR-window">
+        VR window
+	</canvas>
 	<script type="module" src="AR-VR.js"></script>
+	<script type="module" src="VR.js"></script>
 </body>
 </html>
