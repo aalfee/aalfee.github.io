@@ -305,6 +305,7 @@ nav h1 {
     align-items: center;
 } 
 
+<<<<<<< HEAD
 video {
     width: 80%; /* Make video full width */
     height: auto; /* Keep aspect ratio */
@@ -331,6 +332,8 @@ video {
 }
 
 
+=======
+>>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
 #model {
     display: flex;
     flex-direction: column;
