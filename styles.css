@@ -288,7 +288,6 @@ nav h1 {
 }
 
 #AR-window {
-    background-color: #fff;
     padding: 40px;
     border-radius: 1000px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
@@ -302,6 +301,7 @@ nav h1 {
     align-items: center;
 } 
 
+<<<<<<< HEAD
 #vr-container, #ar-container {
     display: flex;
     flex-direction: column;
@@ -331,6 +331,62 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+=======
+#VR-window {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 1000px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    max-width: 1850px;
+    max-height: 1000px;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s ease;
+    display: flex;
+    top: 100%;
+    justify-content: center;
+    align-items: center;
+} 
+
+<<<<<<< HEAD
+video {
+    width: 80%; /* Make video full width */
+    height: auto; /* Keep aspect ratio */
+    border: 1px solid black; /* Optional: Add a border around the video */
+}
+
+#menu button {
+    padding: 15px;
+    background-color: #7DD0D7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#menu button:hover {
+    background-color: #7DD0D7;
+    transform: scale(1.05);
+}
+
+
+=======
+>>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
+#model {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+>>>>>>> a1cbd24c1b5bfe78904a641b367e24bd4a0e81b7
 }
 
 

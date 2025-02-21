@@ -69,7 +69,64 @@ scene.add(pointLight2);
 
 
 //<--- Start of new code --->
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
 
+let scrollAmount = 0;
+const maxScrollLeft = -10;
+const maxScrollRight = 10;
+
+document.addEventListener('pointermove', onPointerMove);
+
+// Handle scrolling based on mouse movement
+document.addEventListener('mousemove', onMouseMove);
+
+function onPointerMove(event) {
+pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+pointer.y =  (event.clientY / window.innerHeight) * 2 + 1;
+
+raycaster.setFromCamera(pointer, camera);
+
+const intersects = raycaster.intersectObject(model, true);
+
+const res = intersects.filter(res => res && res.object)[0];
+selectedObject = res.object;
+
+if (intersects.length > 0) {
+            selectedObject.material.color.set(0xfff000);
+  }
+}
+
+function onMouseMove(event) {
+
+// Calculate normalized mouse position
+
+const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+const mouseY = (event.clientY / window.innerHeight) * 2 + 1;
+
+// Update camera position to simulate horizontal scrolling
+
+const deltaY = event.movementY * 0.002;
+<<<<<<< HEAD
+scrollAmount += deltaY * 0.5;
+=======
+scrollAmount += deltaY * 0.005;
+>>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
+//scrollAmount = Math.max(maxScrollLeft, Math.min(maxScrollRight, scrollAmount));
+camera.position.y = scrollAmount;
+
+// Update light position based on mouse position
+
+<<<<<<< HEAD
+const lightX = mouseX * 10; // Adjust multiplier for desired range
+const lightY = mouseY * 10; // Adjust multiplier for desired range
+directionalLight2.position.set(0, lightY, lightX);
+=======
+const lightX = mouseX * 30; // Adjust multiplier for desired range
+const lightY = mouseY * 10; // Adjust multiplier for desired range
+directionalLight2.position.set(50, lightX -10, lightY);
+>>>>>>> 6948b8ca24dd5aa8be6145e02c6dc6f7fd25446d
+}
 
 // <---- End of new Code --->
 

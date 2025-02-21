@@ -1,8 +1,18 @@
 //import three.js library here
+<<<<<<< HEAD
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 //import * as AR from 'ar';
+=======
+
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+//import * as THREEx from 'threex';
+
+// Request access to the user's camera
+>>>>>>> a1cbd24c1b5bfe78904a641b367e24bd4a0e81b7
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -56,8 +66,55 @@ const pointLight2 = new THREE.PointLight(0x800080, 7, 13); // Bright point light
 pointLight2.position.set(-6, 2, 10);
 scene.add(pointLight2);
 
+<<<<<<< HEAD
 function animate() {
     requestAnimationFrame(animate);
+=======
+// <------ Start of AR implementations ----->
+/*
+const arToolkitSource = new THREEx.ArToolkitSource({
+    sourceType: 'webcam',
+});
+arToolkitSource.init(function onReady() {
+    onResize();
+});
+
+window.addEventListener('resize', function () {
+    onResize();
+});
+
+function onResize() {
+    arToolkitSource.onResize();
+    arToolkitSource.copySizeTo(renderer.domElement);
+    if (arToolkitContext.arController !== null) {
+        arToolkitSource.copySizeTo(arToolkitContext.arController.canvas);
+    }
+}
+
+const arToolkitContext = new THREEx.ArToolkitContext({
+    cameraParametersUrl: 'https://rawgit.com/jeromeetienne/AR.js/master/aframe/examples/marker-training/examples/camera_para.dat',
+    detectionMode: 'mono',
+    maxDetectionRate: 30,
+});
+arToolkitContext.init(function () {
+    camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
+});
+
+const markerRoot = new THREE.Group();
+scene.add(markerRoot);
+
+// Add a marker to place the jewelry model
+const marker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
+    type: 'pattern',
+    patternUrl: 'https://rawgit.com/jeromeetienne/AR.js/master/aframe/examples/marker-training/examples/pattern-hiro.patt',
+});
+*/
+function animate() {
+    requestAnimationFrame(animate);
+    //if (arToolkitSource.ready !== false) {
+    //    arToolkitContext.update(arToolkitSource.domElement);
+    //}
+>>>>>>> a1cbd24c1b5bfe78904a641b367e24bd4a0e81b7
     renderer.render(scene, camera);
     console.log(camera.position);
 }
