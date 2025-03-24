@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="newStyle.css" rel="stylesheet">
+<script type="module" src="gestureDetection.js"></script>
+<title>Hand</title>
+<script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.146.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Recognize hand gestures using the MediaPipe HandGestureRecognizer and draw on canvas using Three.js</h1>
+
+<section id="demos" class="invisible">
+
+  <h2><br>Demo: Webcam continuous hand gesture detection</h2>
+  <p>Use your hand to make pointing up gestures in front of the camera to get a drawing brush and open palm to grab and move the camera around. </br>Click <b>enable webcam</b> below and grant access to the webcam if prompted.</p>
+
+  <div id="liveView" class="videoView">
+    <button id="webcamButton" class="mdc-button mdc-button--raised">
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__label">ENABLE WEBCAM</span>
+    </button>
+    <div style="position: relative;">
+      <video id="webcam" autoplay playsinline></video>
+      <canvas class="output_canvas" id="output_canvas" width="1280" height="720" style="position: absolute; left: 0px; top: 0px;"></canvas>
+      <p id='gesture_output' class="output">
+    </div>
+  </div>
+</section>
+<canvas id="VR-window"></canvas>
+<canvas id="AR-window"></canvas>
+<script type="module" src="draw.js"></script>
+</body>
+</html>
